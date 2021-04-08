@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Container, Image } from 'react-bootstrap/';
+import { Table, Container, Image, Button } from 'react-bootstrap/';
 
 class City extends React.Component {
   render() {
@@ -7,7 +7,7 @@ class City extends React.Component {
       // pulling display_name property from cityData to display the city name
       //the image links to location iq to find the map, using location key, and properties of lat and lon from cityData https://locationiq.com/docs
       <>
-        <button onClick={this.props.showSearch}>Enter a new city</button>
+        <Button variant="outline-light" onClick={this.props.showSearch}>Enter a new city</Button>
         <h2>{this.props.displayData.display_name}</h2>
         <Table striped bordered hover variant="dark">
           <thead>

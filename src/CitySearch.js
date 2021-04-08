@@ -1,6 +1,6 @@
 import React from 'react';
 // import Form from 'react-bootstrap/Form';
-// import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
 
 class CitySearch extends React.Component {
   constructor(props) {
@@ -8,6 +8,7 @@ class CitySearch extends React.Component {
     this.state = { value: '' };
   }
 
+//function for handling form submit
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.handleSearch(this.state.value);
@@ -23,7 +24,7 @@ class CitySearch extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>Enter a City Location:</label>
         <input type="text" value={this.state.value} onChange={this.handleChange} />
-        <input type="submit" value="Explore!" />
+        <Button variant="outline-light" size="sm" type="submit">Explore!</Button>
       </form>
 
     );
