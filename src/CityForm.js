@@ -10,22 +10,22 @@ class CityForm extends React.Component {
 
 handleSubmit = (event) => {
   event.preventDefault();
-  this.props.handleSubmit(this.state.value);
+  this.props.handleSearch(this.state.value);
 }
 
-handleChange = (event) => {
-  event.preventDefault();
-  this.setState({ value: event.target.value })
-}
+// handleChange = (event) => {
+//   event.preventDefault();
+//   this.setState({ value: event.target.value })
+// }
 
 render() {
   return (
-    <Form>
+    <Form onSubmit={this.handleSubmit}>
       <Form.Group>
         <Form.Label>Enter a city:</Form.Label>
         <Form.Control type="text" placeholder="Seattle, WA..." />
       </Form.Group>
-      <Button onSubmit={this.handleSubmit} variant="primary" type="submit">
+      <Button variant="primary" type="submit">
         Explore!
   </Button>
     </Form>

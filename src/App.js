@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import axios from 'axios';
 import CityForm from './CityForm.js';
+import City from './City.js';
 
 
 class App extends React.Component {
@@ -31,8 +32,10 @@ handleSearch = async(citySearched) => {
   render() {
     return (
       <>
-        <h1>Hello world!</h1>
-        <CityForm />
+        <h1>City Explorer</h1>
+        
+        <City />
+        <CityForm handleSearch={this.handleSearch} />
       </>
     );
   }
