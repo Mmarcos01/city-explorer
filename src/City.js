@@ -9,21 +9,22 @@ class City extends React.Component {
       <>
         <Button variant="outline-light" onClick={this.props.showSearch}>Enter a new city</Button>
         <h2>{this.props.displayData.display_name}</h2>
-        <Table striped bordered hover variant="dark">
-          <thead>
-            <tr>
-              <th>Latitude</th>
-              <th>Longitude</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{this.props.displayData.lat}</td>
-              <td>{this.props.displayData.lon}</td>
-            </tr>
-          </tbody>
-        </Table>
-
+        <div class="table-container">
+          <Table striped bordered hover variant="light">
+            <thead>
+              <tr>
+                <th>Latitude</th>
+                <th>Longitude</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{this.props.displayData.lat}</td>
+                <td>{this.props.displayData.lon}</td>
+              </tr>
+            </tbody>
+          </Table>
+        </div>
         <Container>
           <Image src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&center=${this.props.displayData.lat},${this.props.displayData.lon}&zoom=10`} alt="City Map" fluid />
         </Container>
