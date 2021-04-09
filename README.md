@@ -1,5 +1,7 @@
 # City Explorer
 
+![](/src/img/client-server.jpg)
+
 **Author**: Marie Marcos
 **Version**: 1.0.1 (increment the patch/fix version number if you make more commits past your first submission)
 
