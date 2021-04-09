@@ -1,6 +1,8 @@
 import './App.css';
 import React from 'react';
 import axios from 'axios';
+import Alert from 'react-bootstrap/Alert';
+import Button from 'react-bootstrap/Button';
 import CitySearch from './CitySearch.js';
 import City from './City.js';
 
@@ -12,6 +14,7 @@ class App extends React.Component {
     this.state = {
       searchInput: false,
       citySearched: '',
+      alertMessage: false,
       // cityData: {},
     };
   }
@@ -21,24 +24,47 @@ class App extends React.Component {
   }
 
   handleSearch = async (citySearched) => {
-    let responseData = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&q=${citySearched}&format=json`);
-    // console.log(responseData);
-    this.setState({
-      //user has entered a city, search becomes true
-      searchInput: true,
-      //citySearched will be whatever the user inputs, this must go into axios.get link above to change the link to the correct city.
-      citySearched: citySearched,
-      //Assigning cityData to be responseData, which is pulling from LocationIQ API at index 0 (the first thing in the array, which will be the data for the city the user searched)
-      cityData: responseData.data[0],
-    });
+    try {
+      let responseData = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&q=${citySearched}&format=json`);
 
+      this.setState({
+        searchInput: true,
+        citySearched: citySearched,
+        cityData: responseData.data[0],
+      })
+    } catch (error) {
+      this.setState({ alertMessage: error.message })
+    }
+  };
+
+  refreshPage = () => {
+    window.location.reload();
   }
 
   render() {
+    if (this.state.alertMessage) {
+      return (
+        <>
+          <Alert variant="secondary">
+            <Alert.Heading>Couldn't find that City!</Alert.Heading>
+            <p>
+              Please try entering one that exists.
+            </p>
+          </Alert>
+          <Button variant="outline-light" size="sm" type="button" onClick={this.refreshPage}>Try again!</Button>
+        </>
+      )
+    }
+
     return (
-      // Create a route with a method of `get` and a path of `/location`. The route callback should invoke a function to convert the search query to a latitude and longitude. The function should use the provided JSON data.
+
+      // ternaries are WTF (what ? true : false)
+      //"the condition" ? "what you want when it's true" : "what you want when it's false"
+
+      //has the user searched? If true : If false
       <>
         <h1>City Explorer</h1>
+
         {this.state.searchInput ?
           <City showSearch={this.showSearch}
             displayData={this.state.cityData} /> :
@@ -46,6 +72,7 @@ class App extends React.Component {
       </>
     );
   }
-}
+};
+
 
 export default App;
