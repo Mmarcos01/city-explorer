@@ -46,9 +46,9 @@ class App extends React.Component {
       return (
         <>
           <Alert variant="secondary">
-            <Alert.Heading>Couldn't find that City!</Alert.Heading>
+            <Alert.Heading>Oh noes!</Alert.Heading>
             <p>
-              Please try entering one that exists.
+              {this.state.alertMessage}
             </p>
           </Alert>
           <Button variant="outline-light" size="sm" type="button" onClick={this.refreshPage}>Try again!</Button>
