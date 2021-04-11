@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import CitySearch from './CitySearch.js';
 import City from './City.js';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +14,7 @@ class App extends React.Component {
       searchInput: false,
       citySearched: '',
       alertMessage: false,
-      // cityData: {},
+      // data: {},
     };
   }
   //Search input is initially set at false because user has not entered anything
@@ -60,7 +59,6 @@ class App extends React.Component {
 
       // ternaries are WTF (what ? true : false)
       //"the condition" ? "what you want when it's true" : "what you want when it's false"
-
       //has the user searched? If true : If false
       <>
         <h1>City Explorer</h1>
