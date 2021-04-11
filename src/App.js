@@ -45,12 +45,12 @@ class App extends React.Component {
       return (
         <>
           <Alert variant="secondary">
-            <Alert.Heading>Oh noes!</Alert.Heading>
+            <Alert.Heading class="err-msg">Error!</Alert.Heading>
             <p>
               {this.state.alertMessage}
             </p>
           </Alert>
-          <Button variant="outline-light" size="sm" type="button" onClick={this.refreshPage}>Try again!</Button>
+          <Button variant="outline-light" size="lg" type="button" onClick={this.refreshPage}>Try again!</Button>
         </>
       )
     }
