@@ -24,7 +24,7 @@ class CitySearch extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>Enter a City Location:</label>
         <input type="text" value={this.state.value} onChange={this.handleChange} />
-        <Button variant="outline-light" size="sm" type="submit">Explore!</Button>
+        <Button variant="outline-light" type="submit">Explore!</Button>
       </form>
 
     );
