@@ -5,6 +5,7 @@ import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import CitySearch from './CitySearch.js';
 import City from './City.js';
+import Weather from './Weather.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class App extends React.Component {
       searchInput: false,
       citySearched: '',
       alertMessage: false,
-      // data: {},
+      weatherData: [],
     };
   }
   //Search input is initially set at false because user has not entered anything
@@ -31,6 +32,8 @@ class App extends React.Component {
         citySearched: citySearched,
         cityData: responseData.data[0],
       })
+      this.getWeatherData();
+
     } catch (error) {
       this.setState({ alertMessage: error.message })
     }
@@ -39,6 +42,19 @@ class App extends React.Component {
   refreshPage = () => {
     window.location.reload();
   }
+
+  getWeatherData = async () => {
+    try {
+      const weatherData = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/weather`)
+      console.log('proof of life', weatherData);
+      this.setState({
+        weatherData: weatherData.data,
+      })
+      console.log(this.state);
+    } catch (error) {
+      this.setState({ alertMessage: error.message })
+    }
+  };
 
   render() {
     if (this.state.alertMessage) {
@@ -57,9 +73,6 @@ class App extends React.Component {
 
     return (
 
-      // ternaries are WTF (what ? true : false)
-      //"the condition" ? "what you want when it's true" : "what you want when it's false"
-      //has the user searched? If true : If false
       <>
         <h1>City Explorer</h1>
 
@@ -67,6 +80,7 @@ class App extends React.Component {
           <City showSearch={this.showSearch}
             displayData={this.state.cityData} /> :
           <CitySearch handleSearch={this.handleSearch} />}
+        <Weather weatherData={this.state.weatherData} />
       </>
     );
   }

@@ -21,6 +21,11 @@ body {
   font-weight: bold;
 }
 
+.list-group {
+ color:black;
+ margin-top: 35px;
+}
+
 h1 {
   font-size: 4em;
   margin-top: 4%;
@@ -29,6 +34,10 @@ h1 {
 
 h2{
   padding-left: 4%;
+}
+
+h3 {
+  color:white;
 }
 
 .btn{
