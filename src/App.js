@@ -80,7 +80,10 @@ class App extends React.Component {
           <City showSearch={this.showSearch}
             displayData={this.state.cityData} /> :
           <CitySearch handleSearch={this.handleSearch} />}
-        <Weather weatherData={this.state.weatherData} />
+
+        {this.state.searchInput ?
+          <Weather weatherData={this.state.weatherData} /> :
+          ''}
       </>
     );
   }
