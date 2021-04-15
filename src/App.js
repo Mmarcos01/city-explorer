@@ -45,7 +45,11 @@ class App extends React.Component {
 
   getWeatherData = async () => {
     try {
-      const weatherData = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/weather`)
+      const weatherData = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/weather`,
+        {
+          params:
+            { lat: this.state.cityData.lat, lon: this.state.cityData.lon }
+        });
       console.log('proof of life', weatherData);
       this.setState({
         weatherData: weatherData.data,

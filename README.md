@@ -17,7 +17,7 @@ Learn how to code
 HTML, CSS, JavaScript, Bootstrap, React
 
 ## Architecture
-Git, GitHub, HTML, CSS, JavaScript, Bootstrap, React, VScode, Netlify, APIs, Developer Tools
+Git, GitHub, HTML, CSS, JavaScript, Bootstrap, React, VScode, Netlify, APIs, Developer Tools, Heroku
 
 
 ## Change Log
@@ -25,9 +25,12 @@ Git, GitHub, HTML, CSS, JavaScript, Bootstrap, React, VScode, Netlify, APIs, Dev
 04-07-2021 9:30pm - Locations Data
 04-08-2021 11:am - Map Data
 04-08-2021 4:00pm - Error Alert
+04-14-2021 6:00pm - Weather API
+04-14-2021 6:00pm - Movie API
 
 ## Credit and Collaborations
 Michelle Ferreirae
+Ryan Gallaway
 Joe Pennock
 Garfield Grant
 Aloysious
@@ -59,6 +62,18 @@ Finish time: 1430
 Actual time needed to complete: 3.5hrs
 
 Name of feature: Error Alert
+Estimate of time needed to complete: 
+Start time: 1430
+Finish time: 1700
+Actual time needed to complete: 2.5hrs
+
+Name of feature: Weatherbit API
+Estimate of time needed to complete: 
+Start time: 1430
+Finish time: 1700
+Actual time needed to complete: 2.5hrs
+
+Name of feature: Movie API
 Estimate of time needed to complete: 
 Start time: 1430
 Finish time: 1700
