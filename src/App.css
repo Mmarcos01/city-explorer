@@ -11,7 +11,10 @@ body {
   max-width: 650px;
   margin: auto;
 }
-
+.card {
+  background-color: #a7a7a7;
+  color: rgb(0, 0, 0);
+}
 .alert-secondary {
   border-radius: 0;
 }
