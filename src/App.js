@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import CitySearch from './CitySearch.js';
 import City from './City.js';
 import Weather from './Weather.js';
+import Movies from './Movies.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class App extends React.Component {
       citySearched: '',
       alertMessage: false,
       weatherData: [],
+      movieData:[],
     };
   }
   //Search input is initially set at false because user has not entered anything
@@ -33,6 +35,7 @@ class App extends React.Component {
         cityData: responseData.data[0],
       })
       this.getWeatherData();
+      this.getMovieData();
 
     } catch (error) {
       this.setState({ alertMessage: error.message })
@@ -48,7 +51,7 @@ class App extends React.Component {
       const weatherData = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/weather`,
         {
           params:
-            { units: 'I', lat: this.state.cityData.lat, lon: this.state.cityData.lon }
+            { lat: this.state.cityData.lat, lon: this.state.cityData.lon }
         });
       console.log('proof of life', weatherData);
       this.setState({
@@ -59,6 +62,23 @@ class App extends React.Component {
       this.setState({ alertMessage: error.message })
     }
   };
+
+  getMovieData = async () => {
+    try {
+      const movies = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/movies/${this.state.citySearched}`,
+        {
+          params:
+            { api_key: process.env.MOVIE_API_KEY }
+        });
+      this.setState({
+        movieData: movies.data,
+      })
+      console.log(this.state);
+    } catch (error) {
+      this.setState({ alertMessage: error.message })
+    }
+  };
+
 
   render() {
     if (this.state.alertMessage) {
@@ -87,6 +107,10 @@ class App extends React.Component {
 
         {this.state.searchInput ?
           <Weather weatherData={this.state.weatherData} /> :
+          ''}
+
+{this.state.searchInput ?
+          <Movies movieData={this.state.movieData} /> :
           ''}
       </>
     );
