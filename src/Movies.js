@@ -11,6 +11,7 @@ class Movies extends React.Component {
       <Card key={index}>
         <h2>{`${movie.title}`}</h2>
         <p>{`${movie.overview}`}</p>
+        <p>{`${movie.release_date}`}</p>
         </Card>
           ))
 
