@@ -53,11 +53,11 @@ class App extends React.Component {
           params:
             { lat: this.state.cityData.lat, lon: this.state.cityData.lon }
         });
-      console.log('proof of life', weatherData);
+      // console.log('proof of life', weatherData);
       this.setState({
         weatherData: weatherData.data,
       })
-      console.log(this.state);
+      // console.log(this.state);
     } catch (error) {
       this.setState({ alertMessage: error.message })
     }
@@ -73,7 +73,7 @@ class App extends React.Component {
       this.setState({
         movieData: movies.data,
       })
-      console.log(this.state);
+      // console.log(this.state);
     } catch (error) {
       this.setState({ alertMessage: error.message })
     }
