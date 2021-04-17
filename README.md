@@ -29,11 +29,20 @@ Git, GitHub, HTML, CSS, JavaScript, Bootstrap, React, VScode, Netlify, APIs, Dev
 04-14-2021 6:00pm - Movie API
 
 ## Credit and Collaborations
+Thanks to all!
+Instructors:
 Michelle Ferreirae
 Ryan Gallaway
+TAs:
 Joe Pennock
+Paul O'brien
+Michael Eclavea
+Getting Started:
 Garfield Grant
 Aloysious
+Kassie Bradshaw
+Adrian Milsap
+
 Photo by Nextvoyage from Pexels
 
 https://reactjs.org/
