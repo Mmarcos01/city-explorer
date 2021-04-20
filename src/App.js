@@ -17,7 +17,7 @@ class App extends React.Component {
       citySearched: '',
       alertMessage: false,
       weatherData: [],
-      movieData:[],
+      movieData: [],
     };
   }
   //Search input is initially set at false because user has not entered anything
@@ -51,13 +51,14 @@ class App extends React.Component {
       const weatherData = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/weather`,
         {
           params:
-            { lat: this.state.cityData.lat, lon: this.state.cityData.lon }
+          {
+            lat: this.state.cityData.lat,
+            lon: this.state.cityData.lon
+          }
         });
-      // console.log('proof of life', weatherData);
       this.setState({
         weatherData: weatherData.data,
       })
-      // console.log(this.state);
     } catch (error) {
       this.setState({ alertMessage: error.message })
     }
@@ -65,20 +66,20 @@ class App extends React.Component {
 
   getMovieData = async () => {
     try {
-      const movies = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/movies/${this.state.citySearched}`,
+      const movies = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/movies`,
         {
           params:
-            { api_key: process.env.MOVIE_API_KEY }
+          {
+            city: this.state.citySearched,
+          }
         });
       this.setState({
         movieData: movies.data,
       })
-      // console.log(this.state);
     } catch (error) {
       this.setState({ alertMessage: error.message })
     }
   };
-
 
   render() {
     if (this.state.alertMessage) {
@@ -109,7 +110,7 @@ class App extends React.Component {
           <Weather weatherData={this.state.weatherData} /> :
           ''}
 
-{this.state.searchInput ?
+        {this.state.searchInput ?
           <Movies movieData={this.state.movieData} /> :
           ''}
       </>
