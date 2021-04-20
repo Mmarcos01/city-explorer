@@ -5,8 +5,6 @@ import { Table, Container, Image, Button } from 'react-bootstrap/';
 class City extends React.Component {
   render() {
     return (
-      // pulling display_name property from cityData to display the city name
-      //the image links to location iq to find the map, using location key, and properties of lat and lon from cityData https://locationiq.com/docs
       <div class="center">
         <Button variant="outline-light" onClick={this.props.showSearch}>Enter a new city</Button>
         <h2>{this.props.displayData.display_name}</h2>
